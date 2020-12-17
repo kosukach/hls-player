@@ -1,0 +1,8 @@
+type Resource @model {
+  id: ID!
+  name: String!
+  description: String
+  image: String
+  isLive: Boolean!
+  url: String!
+}

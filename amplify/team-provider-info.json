@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-hlsplayer-dev-112722-authRole",
+      "UnauthRoleArn": "arn:aws:iam::950256615619:role/amplify-hlsplayer-dev-112722-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::950256615619:role/amplify-hlsplayer-dev-112722-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-hlsplayer-dev-112722-deployment",
+      "UnauthRoleName": "amplify-hlsplayer-dev-112722-unauthRole",
+      "StackName": "amplify-hlsplayer-dev-112722",
+      "StackId": "arn:aws:cloudformation:us-east-2:950256615619:stack/amplify-hlsplayer-dev-112722/c06e30b0-3a00-11eb-b1dd-060a4e2998d0",
+      "AmplifyAppId": "d2eoneh4m33opd"
+    }
+  }
+}
