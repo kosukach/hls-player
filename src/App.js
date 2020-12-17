@@ -25,6 +25,7 @@ class App extends Component {
     this.playVid = this.playVid.bind(this)
     this.playUrl = this.playUrl.bind(this)
     this.pauseLive = this.pauseLive.bind(this)
+    this.render = this.render.bind(this);
   }
 
   async componentDidMount(){
@@ -186,6 +187,7 @@ class App extends Component {
 
 
     const live = this.state.currentResource.isLive;
+
     if(live){document.getElementById("juice").style.width = 0}
     return (
       <div className="App">
