@@ -11,7 +11,8 @@ class App extends Component {
     super(props)
     this.state = {
       currentResource: {
-        name: "Resource not loaded"
+        name: "Resource not loaded",
+        isLive: false
       },
       mousedown: false,
       resources: []
@@ -25,7 +26,6 @@ class App extends Component {
     this.playVid = this.playVid.bind(this)
     this.playUrl = this.playUrl.bind(this)
     this.pauseLive = this.pauseLive.bind(this)
-    this.render = this.render.bind(this);
   }
 
   async componentDidMount(){
@@ -186,8 +186,7 @@ class App extends Component {
   render(){
 
 
-    const live = this.state.currentResource.isLive;
-
+    const live = this.state.currentResource.isLive ;
     if(live){document.getElementById("juice").style.width = 0}
     return (
       <div className="App">
