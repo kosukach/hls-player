@@ -185,7 +185,7 @@ class App extends Component {
 
   render(){
 
-
+    console.log(this.state)
     const live = this.state.currentResource.isLive ;
     if(live){document.getElementById("juice").style.width = 0}
     return (
