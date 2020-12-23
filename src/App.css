@@ -3,6 +3,17 @@
   width: 100%;
   margin: 0;
 }
+
+#video{
+  display: none;
+}
+
+#loading{
+  margin-top: 5rem;
+  width: 100%;
+  height: 10rem;
+  text-align: center;
+}
 #header{
   display: flex;
   justify-content: center;
@@ -154,6 +165,7 @@
 
 #juice{
   height: 3.5px;
+  width: 0%;
   background-color: #884dff;
 }
 #time{

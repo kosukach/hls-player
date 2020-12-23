@@ -29,25 +29,33 @@ class App extends Component {
   }
 
   async componentDidMount(){
-    await API.graphql(graphqlOperation(queries.listResources)).then(
-      res => (this.setState({
-        resources: res.data.listResources.items.slice(1),
-        currentResource: res.data.listResources.items[0]
-      })))
+    await API.graphql(graphqlOperation(queries.aliasQuery)).then(
+      res => {
+        this.setState({
+          resources: res.data.resources.items,
+          currentResource: res.data.live
+        })
+      }
+    )
       
     this.loadVid(this.state.currentResource);
+    
   }
 
   loadVid(resource){
     const video = document.getElementById('video');
-    const btn = document.getElementById("toggle");
-    btn.className = "pause";
+    
+    const loading = document.getElementById("loading");
+    loading.style.display = "inline-block";
     if(Hls.isSupported()) {
       const hls = new Hls();
       hls.loadSource(resource.url);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, ()=>{
-        video.play()
+        loading.style.display = "none";
+        video.style.display = "inline-block";
+        video.currentTime = 0;
+        video.play();
       })
     }
   }
@@ -143,7 +151,6 @@ class App extends Component {
 
   updateVid(mouseX){
     const video = document.getElementById("video");
-    video.play();
     video.currentTime = mouseX * video.duration;
     this.updateJuice(); 
   }
@@ -156,6 +163,10 @@ class App extends Component {
   }
 
   playVid(resource){
+
+    const btn = document.getElementById("toggle");
+    btn.className = "pause";
+    
     const left = this.state.resources.filter(reso => reso.id !== resource.id)
 
     if(this.state.currentResource.id !== 0){left.push(this.state.currentResource);}
@@ -164,6 +175,8 @@ class App extends Component {
       currentResource: resource,
       resources: left
     });
+
+    window.scrollTo(0, 0);
   }
 
   playUrl(){
@@ -184,10 +197,9 @@ class App extends Component {
   }
 
   render(){
-
-    console.log(this.state)
     const live = this.state.currentResource.isLive ;
     if(live){document.getElementById("juice").style.width = 0}
+
     return (
       <div className="App">
         <div id="header">
@@ -204,6 +216,9 @@ class App extends Component {
             onMouseEnter={live ? ()=>{document.getElementById("live-icon").style.display = "block"} : null}
             onMouseLeave={live ? ()=>{document.getElementById("live-icon").style.display = "none"} : null}
           >
+            <div id="loading">
+              <h3>Loading...</h3>
+            </div>
             <video id="video" onClick={this.togglePlay} onTimeUpdate={live ? null : this.updateJuice }></video>
             <div id="live-icon">
               <p className="live-text">Live</p>

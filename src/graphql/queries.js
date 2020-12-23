@@ -36,3 +36,28 @@ export const listResources = /* GraphQL */ `
     }
   }
 `;
+
+export const aliasQuery = /*GraphQl*/ `
+  query {
+    live: getResource(id: "e00bb7bf-da9f-4c1d-b352-f84d26c587b6"){
+      id
+      name
+      image
+      isLive
+      url
+    },
+    resources: listResources(filter: 
+      {id: {notContains: "e00bb7bf-da9f-4c1d-b352-f84d26c587b6"}
+      }) {
+      items{
+        id
+        name
+        image
+        isLive
+        url
+      }
+    }
+  }
+`;
+
+

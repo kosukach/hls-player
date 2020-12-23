@@ -10,6 +10,11 @@
       "StackName": "amplify-hlsplayer-dev-112722",
       "StackId": "arn:aws:cloudformation:us-east-2:950256615619:stack/amplify-hlsplayer-dev-112722/c06e30b0-3a00-11eb-b1dd-060a4e2998d0",
       "AmplifyAppId": "d2eoneh4m33opd"
+    },
+    "categories": {
+      "auth": {
+        "hlsplayera27e18df": {}
+      }
     }
   }
 }
