@@ -57,6 +57,9 @@ class App extends Component {
         video.currentTime = 0;
         video.play();
       })
+    } else {
+      const centerDiv = document.getElementById("loading");
+      centerDiv.children[0].innerHTML = "HLS is not supported";
     }
   }
 
