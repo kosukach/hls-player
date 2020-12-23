@@ -82,7 +82,8 @@ class App extends Component {
     liveIcon.style.background = "rgba(150, 150, 150, 0.67)";
     liveIcon.style.cursor = "pointer";
     liveIcon.children[0].innerHTML = "Skip To Live";
-  
+    const btn = document.getElementById("toggle");
+    btn.className = "pause";
     const skipToLive = () =>{
       liveIcon.style.background = "rgba(226, 18, 18, 0.67)";
       liveIcon.children[0].innerHTML = "Live";
